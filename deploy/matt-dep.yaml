@@ -1,0 +1,41 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: matt
+  namespace: dev
+pec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: matt
+  template:
+    metadata:
+      labels:
+        app: matt
+      annotations:
+        prometheus.io/scrape: 'true'
+    spec:
+      containers:
+      - name: matt
+        image: quay.io/repository/brice/metrics-demo:v4-subscription-service
+        ports:
+        - containerPort: 3000
+        # readinessProbe:
+        #   httpGet:
+        #     path: /readyz
+        #     port: 9898
+        #   initialDelaySeconds: 1
+        #   periodSeconds: 5
+        #   failureThreshold: 1
+        # livenessProbe:
+        #   httpGet:
+        #     path: /healthz
+        #     port: 9898
+        #   initialDelaySeconds: 1
+        #   periodSeconds: 10
+        #   failureThreshold: 2
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "10m"
