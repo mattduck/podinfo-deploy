@@ -1,0 +1,1 @@
+{"jobID":"8f961c1b-f878-5f56-30a3-427459223e3c","spec":{"type":"policy","cause":{"Message":"","User":"Matt Duck \u003cmatt@ometria.com\u003e"},"spec":{"dev:deployment/podinfo":{"add":{"automated":"true"},"remove":null}}},"result":null}
